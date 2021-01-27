@@ -18,9 +18,11 @@ public class CombatSceneHandler : MonoBehaviour
         Party playerParty = ScriptableObject.CreateInstance("Party") as Party;
         Party enemyParty = ScriptableObject.CreateInstance("Party") as Party;
 
-        // Move the camera onto this object
+        // Move the camera onto this object and set its size
         Camera camera = Camera.main;
         camera.transform.position = transform.position;
+        Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        camera.orthographicSize = canvas.pixelRect.height / 2;
 
         // Coords to place sprites in each party
         int xCoord = xMargin;
